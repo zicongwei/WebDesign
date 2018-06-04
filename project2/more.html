@@ -1,0 +1,193 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Beijing Food</title>
+
+
+<style>
+	body {
+		background-color: #EAE7DC;
+    text-align: center;
+	}
+	.header{
+	padding: 50px;
+	text-align: center;
+	background-image: url("pic/nanluo.jpg");
+	background-size: cover;
+	opacity: 0.8;
+}
+
+.content {
+  padding: 16px;
+}
+
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 200px;
+}
+
+#navbar {
+	z-index:2;
+  overflow: hidden;
+  background-color: #E85A4F;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #E98074;
+  color: white;
+}
+
+#navbar a.active {
+  background-color: #D8C3A5;
+  color: white;
+}
+
+.header span{
+	color: #FF4D00;
+	background-color: #EAE7DC;
+	font-size: 30px;
+	background-size: auto;
+	padding: 10px;
+	opacity: 0.85;
+}
+	
+	.subscription {
+  background-color: #E98074;
+  color: #fefefe;
+  padding: 2rem;
+  border-radius: 0;
+}
+	h2 {
+		color: indianred;
+	}
+
+.subscription .button {
+  margin-bottom: 0;
+  border-radius: 0 0 0 0;
+}
+	
+
+
+input[type=text], select, textarea {
+    width: 100%; 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 2px;
+    box-sizing: border-box; 
+    margin-top: 2px; 
+    margin-bottom: 16px; 
+    resize: vertical 
+}
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+    background-color: #E98074;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+    background-color: #E85A4F;
+}
+
+/* Add a background color and some padding around the form */
+.contact {
+    border-radius: 5px;
+    background-color: #D8C3A5;
+    padding: 20px;
+}
+	
+</style>
+	
+</head>
+
+<body>
+<div class="header">
+		<span>Beijing Food Explorer</span>
+
+	</div>
+
+	<div id="navbar">
+  <a href="index.html">Home</a>
+  <a href="foodmap.html">Map</a>
+  <a href="funquiz.html">Test</a>
+  <a href="recommend.html">Suggestion</a>
+  <a href="favorite.html">Favorite</a>
+  <a class="active" href="more.html">More</a>
+  <a href="documentation.html">Documentation</a>
+</div>
+	<br>
+		<div class="content">
+
+<div class="subscription">
+  <form>
+    <h4>Subscribe</h4>
+    <p>Receive updates and latest news. Enter your email below :</p>
+    <div class="input">
+      <span class="inputlabel">
+        <i class="env"></i>
+      </span>
+      <input class="inputfield" type="email" placeholder="Email" required>
+      <button class="button">Sign up now</button>
+	  </div>
+  </form>
+</div>
+
+<h2> Contact </h2>
+<br>
+
+<div class="contact">
+  <form action="action_page.php">
+
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name">
+
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" name="lastname" placeholder="Your last name">
+
+    <label for="subject">Subject</label>
+    <textarea id="subject" name="subject" placeholder="Write something" style="height:200px"></textarea>
+
+    <input type="submit" value="Submit">
+
+  </form>
+</div>
+
+
+
+<div class="media">
+	<br>
+	<h2>Traveler Vlog</h2>
+	<br>
+	<iframe width="630" height="472" src="https://www.youtube.com/embed/jKXOh5wrzK4">
+</iframe>
+	</div>
+</div>
+</body>
+</html>
+
+<script>
+
+	}
+</script>

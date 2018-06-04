@@ -1,0 +1,219 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8">
+<title>Beijing Food</title>
+<script src="http://www.cs.smith.edu/~nhowe/teaching/csc105/labs/formproc.js" language="JavaScript" type="text/javascript"></script>
+<script type="text/javascript" src="http://cs.smith.edu/~nhowe/105/examples/cookie.js"></script>
+<script src="jquery-3.3.1.min.js"></script>
+
+<style>
+
+	body{
+		background-color: #EAE7DC;
+    text-align: center;
+		color: darkred;
+	}
+	
+	.header{
+	padding: 50px;
+	text-align: center;
+	background-image: url("pic/nanluo.jpg");
+	background-size: cover;
+	opacity: 0.8;
+}
+
+.content {
+  padding: 16px;
+}
+
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 200px;
+}
+
+#navbar {
+	z-index:2;
+  overflow: hidden;
+  background-color: #E85A4F;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #E98074;
+  color: white;
+}
+
+#navbar a.active {
+  background-color: #D8C3A5;
+  color: white;
+}
+
+.header span{
+	color: #FF4D00;
+	background-color: #EAE7DC;
+	font-size: 30px;
+	background-size: auto;
+	padding: 10px;
+	opacity: 0.85;
+}
+
+.content {
+	font-size: 20px;
+}
+	
+</style>
+	
+</head>
+
+<body>
+<div class="header">
+		<span>Beijing Food Explorer</span>
+
+	</div>
+
+	<div id="navbar">
+  <a href="index.html">Home</a>
+  <a href="foodmap.html">Map</a>
+  <a class="active" href="funquiz.html">Test</a>
+  <a href="recommend.html">Suggestion</a>
+  <a href="more.html">More</a>
+</div>
+	<br>
+		<div class="content">
+			<p>Thanks for taking the small test!</p>
+
+			<canvas id="canvas1" width="400" height="150"></canvas>
+
+	
+	<p id="result"> </p>
+	<p id="suggest"> </p>
+
+	</div>
+</form>
+</body>
+</html>
+
+<script language="JavaScript" type="text/javascript">
+	
+var north = 0;
+var south = 0;
+var arr = new Array;
+
+setCookie("submit","yes");
+
+	
+if(formValue('zongzi')== "sweet"){
+		north++;
+		setCookie("zongzi","sweet");
+	   } else{
+		   south++; 
+		  setCookie("zongzi","salty");
+	   }
+	
+if(formValue('dish')== "bigger"){
+		north++;
+		setCookie('dish','bigger');
+	} else{
+		south++; 
+		setCookie('dish','smaller');
+	}
+	
+if(formValue('tofu')== "salty"){
+		north++;
+		setCookie("tofu","salty");
+	} else{
+		south++;
+		setCookie("tofu","sweet");
+	}
+	
+if(formValue('soup')== "no"){
+		north++;
+		setCookie('soup','no');
+	} else{
+		setCookie('soup','yes');
+		south++; 
+	}
+	
+	if(formValue('riceN')== "noodle"){
+		north++;
+		setCookie('riceN','noodle');
+	} else{
+		south++; 
+		setCookie('riceN','rice');
+	}
+	
+var percent = north/5*100; 
+
+/*	
+function saveChoice(type, choice) {
+		setCookie(type,choice);
+}*/
+
+var canvas = document.getElementById('canvas1');
+var ctx = canvas.getContext('2d');
+var count=0;
+var start=4.72;
+var cw=ctx.canvas.width/2;
+var ch=ctx.canvas.height/2;
+var diff;
+ 
+function progressBar(){
+	diff=(count/100)*Math.PI*2;
+	ctx.clearRect(0,0,400,200);
+	ctx.beginPath();
+	ctx.arc(cw,ch,50,0,2*Math.PI,false);
+	ctx.fillStyle='#EAE7DC';
+	ctx.fill();
+	ctx.strokeStyle='#D8C3A5';
+	ctx.stroke();
+	ctx.fillStyle='#000';
+	ctx.strokeStyle='#E85A4F';
+	ctx.textAlign='center';
+	ctx.lineWidth=15;
+	ctx.font = '10pt Verdana';
+	ctx.beginPath();
+	ctx.arc(cw,ch,50,start,diff+start,false);
+	ctx.stroke();
+	ctx.fillText(count+'% North',cw+2,ch+6);
+	if(count>=percent){
+		clearTimeout(bar);
+		showResult();
+	}
+	count++;
+}
+
+var bar=setInterval(progressBar,50);
+
+function showResult(){
+    if (north > south){
+		document.getElementById("result").innerHTML = "You have northern taste! Enjoy Beijing food!";
+	} else {
+		document.getElementById("result").innerHTML = "You have southern taste! But Beijing still welcomes you:)";
+	}
+
+	document.getElementById("suggest").innerHTML = '<a href="recommend.html">See Food Suggestion</a>';
+
+
+}
+
+
+
+
+
+</script>

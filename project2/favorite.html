@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Beijing Food</title>
+
+
+<style>
+	body {
+		background-color: #EAE7DC;
+    text-align: center;
+	}
+	.header{
+	padding: 50px;
+	text-align: center;
+	background-image: url("pic/nanluo.jpg");
+	background-size: cover;
+	opacity: 0.8;
+}
+
+.content {
+  padding: 16px;
+}
+
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 200px;
+}
+
+#navbar {
+	z-index:2;
+  overflow: hidden;
+  background-color: #E85A4F;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #E98074;
+  color: white;
+}
+
+#navbar a.active {
+  background-color: #D8C3A5;
+  color: white;
+}
+
+.header span{
+	color: #FF4D00;
+	background-color: #EAE7DC;
+	font-size: 30px;
+	background-size: auto;
+	padding: 10px;
+	opacity: 0.85;
+}
+
+h2 {
+  color:#E85A4F;
+
+}
+
+#sub{
+  color:#8E8D8A;
+}
+
+#foods{
+  color:#E85A4F;
+}
+	
+	
+</style>
+	
+</head>
+
+<body>
+<div class="header">
+		<span>Beijing Food Explorer</span>
+
+	</div>
+
+	<div id="navbar">
+  <a href="index.html">Home</a>
+  <a href="foodmap.html">Map</a>
+  <a href="funquiz.html">Test</a>
+  <a href="recommend.html">Suggestion</a>
+  <a class="active" href="favorite.html">Favorite</a>
+  <a href="more.html">More</a>
+  <a href="documentation.html">Documentation</a>
+</div>
+	<br>
+		<div class="content">
+
+<div class="list">
+	<h2>Your Favorite Food: </h2>
+  <p id="sub"> Food you like </p>
+  <div id="foods">
+  </div>
+	
+	</div>
+</div>
+</body>
+</html>
+
+<script>
+
+	var arrS = JSON.parse(window.localStorage.getItem("arrS"));
+  for (var i=0; i< arrS.length; i++){
+    document.getElementById("foods").innerHTML += (arrS[i]) + "<br><br>";
+  }
+
+</script>

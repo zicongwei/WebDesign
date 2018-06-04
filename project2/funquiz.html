@@ -1,0 +1,202 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Beijing Food</title>
+<script src="http://www.cs.smith.edu/~nhowe/teaching/csc105/labs/formproc.js" language="JavaScript" type="text/javascript"></script>
+
+<style>
+	body {
+		background-color: #EAE7DC;
+	}
+
+	.header{
+	padding: 50px;
+	text-align: center;
+	background-image: url("pic/nanluo.jpg");
+	background-size: cover;
+	opacity: 0.8;
+}
+
+.content {
+  padding: 16px;
+}
+
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 200px;
+}
+
+#navbar {
+	z-index:2;
+  overflow: hidden;
+  background-color: #E85A4F;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #E98074;
+  color: white;
+}
+
+#navbar a.active {
+  background-color: #D8C3A5;
+  color: white;
+}
+
+.header span{
+	color: #FF4D00;
+	background-color: #EAE7DC;
+	font-size: 30px;
+	background-size: auto;
+	padding: 10px;
+	opacity: 0.85;
+}
+
+h2 {
+	color: #E85A4F;
+}
+	
+	
+	.question {
+		color: darkred;
+		text-align: center;
+		font-size: 20px;
+		
+	}
+	.question img {
+		display: block;
+		margin: 0 auto;
+	}
+	
+	.end{
+		text-align: center;
+	}
+input[type=submit] {
+    padding:5px 15px; 
+    background: #D8C3A5; 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+    font-size: 18px; 
+}
+	
+	input[type=reset]{
+    padding:5px 15px; 
+    background: #D8C3A5; 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 18px; 
+}
+
+	
+</style>
+	
+</head>
+
+<body>
+<div class="header">
+		<span>Beijing Food Explorer</span>
+
+	</div>
+
+	<div id="navbar">
+  <a href="index.html">Home</a>
+  <a href="foodmap.html">Map</a>
+  <a class="active" href="funquiz.html">Test</a>
+  <a href="recommend.html">Suggestion</a>
+  <a href="favorite.html">Favorite</a>
+  <a href="more.html">More</a>
+  <a href="documentation.html">Documentation</a>
+</div>
+	<br>
+		<div class="content">
+
+<div class="intro">
+	<h2>Northern Chinese VS. Southern Chinese? <br> Do a test to see your food preference.</h2>
+</div>
+
+	
+<div class="Quiz">
+	<form action="funquizResult.html" name="jsform" method="get" onReset="alert('Resetting form.')" onsubmit="return(process())">
+		
+	<p class="question">1. Which flavor do you like for ZongZi (Sticky Rice Dumpling) ? <br>
+		<br>
+		<img src="pic/zongzi.jpg" alt="zongzi" width="450"> <br>
+		<input type="radio" name="zongzi" value="sweet">Sweet<br>
+		<input type="radio" name="zongzi" value="salty">Salty<br>
+	</p>
+	
+	<p class="question">2. Which is the reguler size of a dish？ <br>
+		<br>
+		<img src="pic/dish.jpg" alt="dish" width="450"> <br>
+		<input type="radio" name="dish" value="bigger">Bigger<br>
+		<input type="radio" name="dish" value="smaller">Smaller<br>
+	</p>
+	
+	<p class="question">3. Which flavor do you like for Douhua (Tofu Pudding)? <br>
+		<br>
+		<img src="pic/douhua.jpg" alt="douhua" width="450"> <br>
+		<input type="radio" name="tofu" value="salty">Salty<br>
+		<input type="radio" name="tofu" value="sweet">Sweet<br>
+	</p>
+		
+	<p class="question">4. Do you like to have soup for evey dinner? <br>
+		<br>
+		<img src="pic/soup.jpg" alt="soup" width="450"> <br>
+		<input type="radio" name="soup" value="yes">Yes<br>
+		<input type="radio" name="soup" value="no">No<br>
+	</p>
+	
+	<p class="question">5. Rice or Noodle? <br>
+		<br>
+		<img src="pic/rice.jpg" alt="rice" width="450"> <br>
+		<input type="radio" name="riceN" value="rice">Rice<br>
+		<input type="radio" name="riceN" value="noodle">Noodle<br>
+	</p>
+		
+		
+	<div class="end">
+	<input type="submit" name="submit" value="Submit">
+	<input type="reset" name="reset" value="Reset">
+		</div>
+	</form>
+
+</div>
+	
+</div>
+</body>
+</html>
+<script>
+window.onscroll = function() {myFunction()};
+	var navbar = document.getElementById("navbar");
+	var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+
+</script>
+

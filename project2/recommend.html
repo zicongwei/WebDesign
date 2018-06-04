@@ -1,0 +1,174 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Project 2</title>
+<script src="http://www.cs.smith.edu/~nhowe/teaching/csc105/labs/formproc.js" language="JavaScript" type="text/javascript"></script>
+<script type="text/javascript" src="http://cs.smith.edu/~nhowe/105/examples/cookie.js"></script>
+
+
+<style>
+	body {
+	background-color: #EAE7DC;
+    text-align: center;
+	}
+
+	.header{
+	padding: 50px;
+	text-align: center;
+	background-image: url("pic/nanluo.jpg");
+	background-size: cover;
+	opacity: 0.8;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 200px;
+}
+
+#navbar {
+	z-index:2;
+  overflow: hidden;
+  background-color: #E85A4F;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #E98074;
+  color: white;
+}
+
+#navbar a.active {
+  background-color: #D8C3A5;
+  color: white;
+}
+
+.header span{
+	color: #FF4D00;
+	background-color: #EAE7DC;
+	font-size: 30px;
+	background-size: auto;
+	padding: 10px;
+	opacity: 0.85;
+}
+
+#suggest {
+	font-size: 20px;
+}
+
+button{
+	background-color:#E98074;
+    cursor:pointer;
+    height:50px;
+    width:80px;
+    font-size:16px;
+}
+
+button:hover {
+	background-color:#E85A4F ;
+}
+
+#firstline a:hover{
+	color:#E98074;
+}
+	
+</style>
+	
+</head>
+
+<body>
+<div class="header">
+		<span>Beijing Food Explorer</span>
+
+	</div>
+
+	<div id="navbar">
+  <a href="index.html">Home</a>
+  <a href="foodmap.html">Map</a>
+  <a href="funquiz.html">Test</a>
+  <a class="active" href="recommend.html">Suggestion</a>
+  <a href="favorite.html">Favorite</a>
+  <a href="more.html">More</a>
+  <a href="documentation.html">Documentation</a>
+
+</div>
+	<br>
+	<div class="content">
+		<div class="intro">
+			<p id="firstline"></p>
+		</div>
+		<div id="suggest">
+			
+		</div>
+
+</div>
+</body>
+</html>
+
+<script>
+	var submit = getCookie('submit');
+
+	if (submit == 'yes'){
+		document.getElementById("firstline").innerHTML = "Suggestions based on your taste"
+	} else {
+		document.getElementById("firstline").innerHTML = "<a href='funquiz.html'>Want to find your favorite street food in Beijing? Complete the test first.</a>"
+	}
+
+	var riceN = getCookie('riceN');
+	var zongzi = getCookie('zongzi');
+	var tofu = getCookie('tofu');
+	var soup = getCookie('soup');
+
+	var arrS = new Array;
+
+	if (zongzi =='sweet') {
+
+		document.getElementById("suggest").innerHTML += "<p>Fried chop rice cake, similar to Zongzi</p><br> <img src = 'pic/lvdagun.jpg' width=450<br><br>";
+		document.getElementById("suggest").innerHTML += '<button onclick="like(&quot;Fried chop rice cake&quot;)">Like</button>';
+	} else if(zongzi =='salty') {
+		document.getElementById("suggest").innerHTML +="<p>Cabbage Mound with Mustard</p><br><img src = 'pic/wasabi.jpg' width=450><br>";
+		document.getElementById("suggest").innerHTML += '<button onclick="like(&quot;Cabbage Mound with Mustard&quot;)">Like</button>';
+	}
+
+	if (tofu == "salty") {
+		document.getElementById("suggest").innerHTML +="<p>Tofu Pudding</p><br> <img src = 'pic/doufunao.jpg' width=450><br>";
+		document.getElementById("suggest").innerHTML += '<button onclick="like(&quot;Tofu Pudding&quot;)">Like</button>';
+	}
+
+	if (soup =="no"){
+		document.getElementById("suggest").innerHTML +="<p>Arctic Ocean Orange Flavor Soda</p><br> <img src = 'pic/soda.jpg' width=450><br>";
+		document.getElementById("suggest").innerHTML += '<button onclick="like(&quot;Arctic Ocean Orange Flavor Soda&quot;)">Like</button>';
+	} else if (soup =="yes"){
+		document.getElementById("suggest").innerHTML +="<p>Geda Soup (Dough Drop and Assorted Vegetable Soup)</p> <img src = 'pic/gedatang.jpg' width=450><br>";
+		document.getElementById("suggest").innerHTML += '<button onclick="like(&quot;Geda Soup&quot;)">Like</button>';
+	}
+
+	if (riceN == 'noodle'){
+		document.getElementById("suggest").innerHTML +="<p>Beijing Fried Sauce Noodles (Zhajiangmian)</p><br> <img src='pic/zhajiangmian.jpeg' alt='zhajiangmian' width=450><br>";
+		document.getElementById("suggest").innerHTML += '<button onclick="like(&quot;Beijing Fried Sauce Noodles&quot;)">Like</button>';
+	}
+
+	function like(food){
+		arrS.push(food);
+		window.localStorage.setItem("arrS", JSON.stringify(arrS));
+	}
+
+</script>

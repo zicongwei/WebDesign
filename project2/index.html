@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Beijing Food</title>
+
+<style>
+	
+body, html { 
+	height: 100%;
+	margin: auto;
+}
+
+
+
+.goto{
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 0 1rem;  margin: auto;
+
+  max-width:1000;
+  text-align:center;
+
+   position: absolute;
+	left: 0;
+	width: 100%;
+	top: 40%;
+	text-align: center;
+
+}
+
+.box .layer {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width:250px;
+	height: 100%;
+	background-color: #E98074;
+	opacity: 0;
+	z-index: 1;
+	margin: auto;
+	display: flex; 
+	align-items: center; 
+	justify-content: center;
+	
+
+	color:black;
+	font-size:22px;
+}
+
+.layer:hover {
+	opacity: 0.9;
+}
+
+.box {
+	width:250px;
+	height: 150px;
+	margin-right: auto;
+	display: inline-block;
+	position: relative;
+	border: 1px solid #E85A4F;
+}
+
+
+.bgimg-1 {
+	position: relative;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url("pic/1_nightmarket75.jpg");
+	height: 100%;
+
+}
+	
+.caption {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	top: 10%;
+	text-align: center;
+	color: #EAE7DC;
+	
+}
+
+.caption span.intro {
+	display: inline-block;
+    background-color: #E85A4F;
+    color: lightyellow;
+    padding: 20px;
+    font-size: 30px;
+    letter-spacing: 10px;
+}
+
+.caption span.intro2 {
+  background-color: #E85A4F;
+  color: lightyellow;
+  padding: 20px;
+  font-size: 30px;
+  letter-spacing: 10px;
+}
+
+#icon {
+	position: absolute;
+	top: 2%;
+	left: 3%;
+	height:40px;
+}	
+
+#icon:hover {
+	opacity: 0.8;
+}
+	
+</style>
+	
+</head>
+
+<body>
+<div class="bgimg-1">
+	<div class="caption">
+		<span class="intro">Beijing</span><br>
+		<span class="intro2">Street Food Explorer</span>
+	</div>
+
+	<div class="goto" align="center">
+		<div class="box">
+			<a href="foodmap.html"><img src="pic/2_tanghulu.jpg" id="foodmap" width="250" height="150">
+				<div class="layer" ">Food Map
+				</div></a>
+			</div>
+
+			<div class="box">
+			<a href="funquiz.html"><img src="pic/3_jiaozitangyuan.jpg" id="funquiz" width="250" height="150">
+				<div class="layer" >Test
+				</div></a>
+			</div>
+
+			<div class="box">
+			<a href="recommend.html"><img src="pic/hotpot.jpg" id="funquiz" width="250" height="150">
+				<div class="layer" >Recommend
+				</div></a>
+			</div>
+
+			<div class="box">
+			<a href="more.html"><img src="pic/kaoya.jpeg" id="funquiz" width="250" height="150">
+				<div class="layer" >More
+				</div></a>
+			</div>
+	</div>
+
+		 <audio id="bgm" loop="loop" preload="auto" autoplay="autoplay"> 
+		 	<source src="music/huanqin.mp3" type="audio/ogg" /> 
+		 	<source src="music/huanqin.mp3" type="audio/mp3" /> 
+		 </audio>
+		 <img id="icon" onclick="swap_music()" src="pic/musicicon.png"/>
+
+</div>
+</body>
+</html>
+<script>
+	function swap_music() {
+		var audio1 = document.getElementById('bgm');
+		if (audio1.paused) {
+			audio1.play();
+		} else {
+			audio1.pause();}
+	}
+	</script>

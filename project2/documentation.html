@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Project 2</title>
+
+
+<style>
+	body {
+		background-color: #EAE7DC;
+    text-align: center;
+	}
+	.header{
+	padding: 50px;
+	text-align: center;
+	background-image: url("nanluo.jpg");
+	background-size: cover;
+	opacity: 0.8;
+}
+
+.content {
+  padding: 16px;
+}
+
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 200px;
+}
+
+#navbar {
+	z-index:2;
+  overflow: hidden;
+  background-color: #E85A4F;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #E98074;
+  color: white;
+}
+
+#navbar a.active {
+  background-color: #D8C3A5;
+  color: white;
+}
+
+.header span{
+	color: #FF4D00;
+	background-color: #EAE7DC;
+	font-size: 30px;
+	background-size: auto;
+	padding: 10px;
+	opacity: 0.85;
+}
+
+h2 {
+  color:#E85A4F;
+
+}
+
+#sub{
+  color:#8E8D8A;
+}
+
+#foods{
+  color:#E85A4F;
+}
+	
+	
+</style>
+	
+</head>
+
+<body>
+<div class="header">
+		<span>Beijing Food Explorer</span>
+
+	</div>
+
+	<div id="navbar">
+  <a href="index.html">Home</a>
+  <a href="foodmap.html">Map</a>
+  <a href="funquiz.html">Test</a>
+  <a href="recommend.html">Suggestion</a>
+  <a href="favorite.html">Favorite</a>
+  <a href="more.html">More</a>
+  <a class="active" href="documentation.html">Documentation</a>
+</div>
+	<br>
+  <div class="content">
+    <h1> Project Documentation </h1>
+    <h2> Zicong Wei </h2>
+    <h2> Mission </h2>
+    <p> This is a website for travelers in Beining for finding local foods </p>
+    <p> There are pages for food information, location, and suggestions. Also, it includes fun interaction</p>
+
+    <h3> Forms </h3>
+    <a href="funquiz.html">Test</a>
+    <p> I use form to make a small survey, with five questions. It can test people's taste on northern or southern Chinese food. Besides, the answer are collected for future use. </p>
+    <a href="more.html">More</a>
+    <p> Use the form to subscribe </p>
+
+    <h3> Cookies </h3>
+    <a href="funquizResult.html">Test Result</a>
+    <a href="recommend.html">Suggestion</a>
+    <p> Cookies are used in store the answers of the test. With the results of taste, I give food suggestions.</p> 
+    <a href="favorite.html">Favorite</a>
+    <p>Furthermore, I add a Like button, so that users can store the food they interested in to the favorite list. In this part, I use an Array and session to do this cross-page storage, instead of using cookies. </p>
+
+    <h3>Interaction</h3>
+    <a href="foodmap.html">Food Map </a>
+    <p> There are many interactions. The most important one is the food map. Users can click the markers to explore restaurant location. Besides, there are forms and rollover effect. </p>
+
+    <h3>User Feedback</h3>
+    <a href="more.html">More</a>
+    <p> User can contact me, filling out the form. </p>
+
+    <h3>Canvas Graphics</h3>
+    <a href="funquizResult.html">Test Result</a>
+    <p> A circle to show the loading effect, and show the percentage. </p>
+
+    <h3>Multimedia</h3>
+    <a href="index.html">Home </a>
+    <a href="more.html"> More </a>
+    <p> Background music in the home page. Users can click the red icon to stop or plat the BGM. Also, in More page, I put youtube videos about beijing street food for users to explore more information. </p>
+
+    <h3>Project1 Element</h3>
+    <p>This website uses CSS and JS. It also uses lots of images and links. The lay out is clear using div. It has a home page and navigation bar. </p>
+
+    <h3>Reference </h3>
+    <p>Contact Form: https://www.w3schools.com/howto/howto_css_contact_form.asp </p>
+    <p> Map: https://developers.google.com/maps/documentation/javascript/adding-a-google-map </p>
+	
+	</div>
+</div>
+</body>
+</html>
+
+<script>
+
+
+</script>
